@@ -1,0 +1,30 @@
+<h1>自分の立ち上げたイベント</h1>
+
+<table>
+  <thead>
+    <tr>
+
+      <th>ジャンル</th>
+      <th>イベント名</th>
+      <th>参加費</th>
+      <th>スポーツ</th>
+      <th>参加人数</th>
+      <th>イベントステータス</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_events.each do |event| %>
+      <tr>
+        <td><%= event.genre.genre_name %></td>
+        <td><%= event.events_name %></td>
+        <td><%= event.entrance_fee %>円</td>
+        <td><%= event.sportst %></td>
+        <td><%= event.persons %></td>
+        <td><%= event.event_status %></td>
+        <td><%= link_to '詳細', event %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

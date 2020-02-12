@@ -1,0 +1,172 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import "bootstrap-sprockets";
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+p, span, table, tbody, thead, time, tr, ul{
+    /* margin: 0; */
+    padding: 0;
+    /* border: 0; */
+    outline: 0;
+    font-size: 100%;
+    font-weight: 400;
+    vertical-align: baseline;
+    background: 0 0;
+}
+
+body {
+	background-image: url(KAZ19514003_TP_V.jpg);
+	background-color:rgba(255,255,255,0.6);
+	background-blend-mode:lighten;
+	background-attachment: fixed;
+}
+
+.main-visual {
+  width: 100%;
+  height: 400px;
+  background-image: url(006KZ1123FOTO_TP_V.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.main-visual-content {
+  width: 50%;
+  height: 400px;
+  background: rgba(0,0,0,0.5);
+  text-align: center;
+  padding-top: 105px;
+}
+.main-visual-text {
+  color: #fff;
+}
+.main-visual-name {
+  color: #fff;
+  margin-top: 30px;
+}
+
+.container-app{
+    background-color:rgba(255,255,255,0.6);
+}
+
+.m-mainlist__list {
+    border-bottom: 1px solid #ddd;
+}
+
+.col-xs-4{
+	padding-left: 0px;
+    padding-right: 0px;
+}
+
+.m-mainlist-item {
+    padding: 0 20px 10px;
+    margin: 15px 0 0;
+}
+
+.m-mainlist-item__ttl {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    line-height: 20px;
+    margin: 5px 0;
+    line-height: 1.2;
+}
+
+.m-mainlist-item-event__period {
+    display: block;
+    font-size: 16px;
+    line-height: 18px;
+    background-image: none;
+    color: #ed311d;
+    margin: 5px 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.m-mainlist-item-event__open {
+    display: inline-block;
+    background: #fd5f00;
+    color: #fff;
+    font-size: 12px;
+    line-height: 16px;
+    margin-right: 8px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    vertical-align: bottom;
+}
+
+.m-mainlist-item__link {
+    width: 460px;
+    float: right;
+    position: relative;
+}
+
+.m-mainlist-item__txt {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 5px 0;
+}
+
+.m-mainlist-item__map {
+    font-size: 13px;
+    line-height: 18px;
+    padding: 0 0 0 19px;
+    background-image: url(/asset/images/common/icon_map.png);
+    background-repeat: no-repeat;
+    background-position: 2px top;
+    margin: 5px 0;
+}
+
+.m-mainlist-item__maplink {
+    margin: 0 5px 0 0;
+    color: #666;
+}
+
+.m-mainlist-item-event__place {
+    display: block;
+    font-size: 13px;
+    line-height: 18px;
+    padding: 0 0 0 19px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin: 5px 0;
+}
+
+.m-mainlist-item__img {
+    width: 160px;
+    height: 160px;
+    float: left;
+    margin: 0 0 5px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    box-sizing: border-box;
+}
+
+.m-mainlist__item {
+    border-top: 1px solid #ddd;
+}

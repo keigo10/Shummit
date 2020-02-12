@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  genre: one
+  events_name: MyString
+  entrance_fee: 1
+  sports: 1
+  persons: 1
+  event_image_id: MyString
+  event_status: false
+
+two:
+  user: two
+  genre: two
+  events_name: MyString
+  entrance_fee: 1
+  sports: 1
+  persons: 1
+  event_image_id: MyString
+  event_status: false

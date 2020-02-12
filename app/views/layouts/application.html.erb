@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shummit</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" >
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-fixed-top navbar-dark" role="navigation" style="background-color:#ffb000;">
+      <div class="container ">
+       <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand " href="/">Shummit</a>
+     </div>
+
+          <div class="text-white">
+            <div class="pull-right">
+              <!-- <header class="navbar navbar-fixed-top navbar-inverse"> -->
+              <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+
+              <!-- サインインしている場合の表示 -->
+               <% if admin_signed_in? %>
+
+                <li class="">
+                  <%= link_to " ログアウト", destroy_admin_session_path, method: :delete, class:"glyphicon glyphicon-log-out logout head_item" %>
+                </li>
+                <li class="">
+                  <%= link_to "会員一覧", admins_users_path,class:"glyphicon glyphicon-cart cart head_item" %>
+                </li>
+                <li class="">
+                  <%= link_to "ジャンル一覧", admins_genres_path,class:"glyphicon glyphicon-cart cart head_item" %>
+                </li>
+               <% elsif user_signed_in? %>
+               <!-- logoutを表示 -->
+                <li class="center">
+                  <%= link_to " logout", destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-log-out logout head_item" %>
+                </li>
+                <li>
+                  <%= link_to ' メインページ', events_main_path ,class:"glyphicon glyphicon-home home head_item" %>
+                </li>
+                <li class="">
+                  <%= link_to " My page", user_path(current_user),class:"glyphicon glyphicon-log-in login head_item" %>
+                </li>
+                <li class="">
+                  <%= link_to " ジャンル一覧", events_genre_path(current_user),class:"glyphicon glyphicon-log-in login head_item" %>
+                </li>
+                <% else %>
+                <!-- sign upを表示 -->
+                <li class="">
+                  <%= link_to " Sign up", new_user_registration_path, class:"glyphicon glyphicon-edit sign_up head_item" %>
+                </li>
+                <!-- loginを表示 -->
+                <li class="">
+                  <%= link_to " Login", new_user_session_path, class:"glyphicon glyphicon-log-in sign_in  head_item" %>
+                </li>
+                <li class="">
+                  <%= link_to " About", homes_about_path, class:"glyphicon glyphicon-apple  head_item" %>
+                </li>
+                <li class="">
+                  <%= link_to " Admin", new_admin_registration_path, class:"glyphicon glyphicon-edit sign_up head_item" %>
+                </li>
+               <% end %>
+            </ul>
+          </div>
+          </div>
+      </div>
+    </nav>
+    <div class="container container-app" style="padding-top: 50px;">
+    <%= yield %>
+    </div>
+    <footer class="footer pull-left text-right">
+      <div class="container text-right">
+          <p class="text-muted text-right">Copyright (C) 2020　Shummit</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+

@@ -1,0 +1,129 @@
+<p id="notice"><%= notice %></p>
+<table class="table table-bordered" style="border-style: solid; border-width: 5px;">
+      <thead>
+        <tr>
+          <h3 class="text-center" >イベント詳細</h3>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="my_text" style="border-style: solid; border-width: 5px;">
+              <th class="text-center success" style="border-style: solid; border-width: 5px;">
+                <h3>主催者</h3>
+              </th>
+              <th class="text-center" style="border-style: solid; border-width: 5px;">
+                <h3><%= @event.user.family_name %><%= @event.user.first_name %></h3>
+              </th>
+          </tr>
+          <tr class="my_text " style="border-style: solid; border-width: 5px;">
+              <th class="text-center success" style="border-style: solid; border-width: 5px;">
+                <h3>ジャンル</h3>
+              </th>
+              <th class="text-center" style="border-style: solid; border-width: 5px;">
+                <h3><%= @event.genre.genre_name %></h3>
+              </th>
+          </tr>
+          <tr class="my_text" style="border-style: solid; border-width: 5px;">
+              <th class="text-center success" style="border-style: solid; border-width: 5px;">
+                <h3>イベント名</h3>
+              </th>
+              <th class="text-center" style="border-style: solid; border-width: 5px;">
+                <h3><%= @event.events_name %></h3>
+              </th>
+          </tr>
+          <tr class="my_text" style="border-style: solid; border-width: 5px;">
+              <th class="text-center success" style="border-style: solid; border-width: 5px;">
+                <h3>参加費</h3>
+              </th>
+              <th class="text-center" style="border-style: solid; border-width: 5px;">
+                <h3><%= @event.entrance_fee %>円</h3>
+              </th>
+          </tr>
+          <tr class="my_text" style="border-style: solid; border-width: 5px;">
+              <th class="text-center success" style="border-style: solid; border-width: 5px;">
+                <h3>参加人数</h3>
+              </th>
+              <th class="text-center" style="border-style: solid; border-width: 5px;">
+                <h3><%= @event.persons %>人/<%= @event.join_events.length %>人参加中</h3>
+              </th>
+          </tr>
+          <tr class="my_text" style="border-style: solid; border-width: 5px;">
+              <th class="text-center success" style="border-style: solid; border-width: 5px;">
+                <h3>イベントステータス</h3>
+              </th>
+              <th class="text-center" style="border-style: solid; border-width: 5px;">
+                <h3><%= @event.event_status %></h3>
+              </th>
+          </tr>
+          <tr class="my_text" style="border-style: solid; border-width: 5px;">
+              <th class="text-center success" style="border-style: solid; border-width: 5px;">
+                <h3>説明文</h3>
+              </th>
+              <th class="text-center" style="border-style: solid; border-width: 5px;">
+                <h3><%= @event.description %></h3>
+              </th>
+          </tr>
+          <tr class="my_text" style="border-style: solid; border-width: 5px;">
+              <th class="text-center success" style="border-style: solid; border-width: 5px;">
+               <h3>開催日</h3>
+              </th>
+              <th class="text-center" style="border-style: solid; border-width: 5px;">
+                <h3><%= @event.holding %></h3>
+              </th>
+          </tr>
+      </tbody>
+</table>
+<% if @event.join_events.where(user_id: current_user.id).exists? %>
+  <table class="table table-bordered ">
+      <thead>
+        <tr>
+          <h3 class="text-center">イベント参加者</h3>
+        </tr>
+      </thead>
+      <thead>
+        <tr class="success">
+          <th>
+            <h4 class="text-center">アイコン</h4>
+          </th>
+          <th>
+            <h4 class="text-center">名前</h4>
+          </th>
+          <th>
+            <h4 class="text-center">アドレス</h4>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event.join_events.each do |join_event| %>
+          <tr class="my_text">
+              <th class="text-center col-md-2">
+                <%= attachment_image_tag(join_event.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %>
+              <th class="text-center col-md-5">
+                <h3><%= join_event.user.family_name %><%= join_event.user.first_name %></h3>
+              </th>
+              <th class="text-center col-md-5">
+                <h3><%= join_event.user.email %></h3>
+              </th>
+          </tr>
+          <% end %>
+      </tbody>
+  </table>
+<% else %>
+  <%  if @event.join_events.length < @event.persons %>
+
+  <%= form_with model: JoinEvent.new , url: join_events_path, local: true , method: :post do |f| %>
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :event_id, :value => @event.id %>
+  <p>
+    <%= f.submit "イベントに参加する" , class: 'signup-btn'%>
+  </p>
+  <% end %>
+  <% else %>
+  <h3>参加者がいっぱいです</h3>
+  <% end %>
+
+<% end %>
+<% if @event.user.id == current_user.id %>
+<%= link_to 'Edit', edit_event_path(@event),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %> |
+<%= link_to 'Back', events_path %>
+<% else %>
+<% end %>

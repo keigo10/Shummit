@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<h1>イベント一覧</h1>
+<h2>ジャンル：<%= @genre.genre_name %><%= link_to '新しくイベントを立ち上げる', new_event_path, class: " btn-success text-center btn-block" %></h2>
+
+
+<div class="container m-mainlist-main">
+  <ul class = "m-mainlist-list">
+  <% @events.each do |event| %>
+    <li class="container m-mainlist__item">
+      <div class="m-mainlist-item">
+        <a>
+          <span class="m-mainlist-item__ttl"><%= event.events_name %></span>
+        </a>
+        <p class="m-mainlist-item-event__period">
+        <span class="m-mainlist-item-event__open"><%= event.event_status %></span>
+          開催日：<%= event.holding %>
+        </p>
+        <div class="m-mainlist-item__link">
+          <p class="m-mainlist-item-event__place"><h3 class="m-mainlist-item-event__placelink">主催者/<%= event.user.family_name %><%= event.user.first_name %></h3></p>
+          <p class="m-mainlist-item-event__place"><h3 class="m-mainlist-item-event__placelink">参加費/<%= event.entrance_fee %>円</h3></p>
+          <p class="m-mainlist-item-event__place"><h3 class="m-mainlist-item-event__placelink">参加人数/<%= event.persons %>人中<%=event.join_events.length %>人参加</h3></p>
+          <%= link_to '詳細', event,class:"btn btn-primary center-block" %>
+        </div>
+
+        <div class="m-mainlist-item__link">
+          <h4 class="m-mainlist-item__txt"><%= event.description %></h4>
+          <p class="m-mainlist-item__map"><a class="m-mainlist-item__maplink">県名</a>
+            市町村名
+          </p>
+          <p class="m-mainlist-item-event__place"><a class="m-mainlist-item-event__placelink">開催</a></p>
+          <p class="m-mainlist-item-event__place"><a class="m-mainlist-item-event__placelink"></a></p>
+        </div>
+        <a class="m-mainlist-item__img">
+          <span><%= attachment_image_tag(@genre, :genre_image, :fill, 160, 160, fallback: "no_image.jpg") %></span>
+        </a>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>主催者</th>
+      <th>ジャンル</th>
+      <th>イベント名</th>
+      <th>参加費</th>
+      <th>スポーツ</th>
+      <th>参加人数</th>
+      <th>イベントステータス</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.user.family_name %><%= event.user.first_name %></td>
+        <td><%= event.genre.genre_name %></td>
+        <td><%= event.events_name %></td>
+        <td><%= event.entrance_fee %>円</td>
+        <td><%= event.sportst %></td>
+        <td><%= event.persons %></td>
+        <td><%= event.event_status %></td>
+        <td><%= link_to '詳細', event %></td>
+        <td><%= link_to '編集', edit_event_path(event) %></td>
+        <td><%= link_to '消去', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>

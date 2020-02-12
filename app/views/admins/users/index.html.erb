@@ -1,0 +1,35 @@
+<h1>会員一覧画面</h1>
+<table class="table table-bordered">
+	<thead style="background-color: #d0e4e2;">
+		<tr>
+			<th>会員ID</th>
+			<th>氏名</th>
+			<th>メールアドレス</th>
+			<th>ステータス</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |f| %>
+		<tr>
+			<td>
+				<%= f.id %>
+			</td>
+			<td>
+				<%=link_to f.family_name+f.first_name %>
+			</td>
+			<td>
+				<%= f.email %>
+			</td>
+			<td>
+				<% if f.deleted_at.nil? %>
+				<p>有効</p>
+				<%  else %>
+				<p>退会済</p>
+				<% end %>
+			</td>
+
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate @users, class: "paginate" %>

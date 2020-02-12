@@ -1,0 +1,31 @@
+<h1>参加中イベントページ</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>主催者</th>
+      <th>ジャンル</th>
+      <th>イベント名</th>
+      <th>参加費</th>
+      <th>スポーツ</th>
+      <th>参加人数</th>
+      <th>イベントステータス</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @join_events.each do |join_event| %>
+      <tr>
+        <td><%= join_event.event.user.family_name %><%= join_event.event.user.first_name %></td>
+        <td><%= join_event.event.genre.genre_name %></td>
+        <td><%= join_event.event.events_name %></td>
+        <td><%= join_event.event.entrance_fee %>円</td>
+        <td><%= join_event.event.sportst %></td>
+        <td><%= join_event.event.persons %></td>
+        <td><%= join_event.event.event_status %></td>
+        <td><%= link_to '詳細', join_event.event %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,35 @@
+<h1>~EDIT~</h1>
+
+
+<h3>登録情報編集　　　　　<%= link_to '退会する',  user_users_withdraw_path(current_user) ,class:"btn btn-danger" %></h3>
+
+<%= form_for(@user, url: user_path) do |f| %>
+  <table class="table my_table">
+            <tbody>
+                <tr>
+                    <th class="panel my_panel">プロフィール画像</th>
+                    <th class="my_text"><%= f.attachment_field :profile_image %></th>
+                </tr>
+                <tr>
+                    <th class="panel my_panel">氏名</th>
+                    <th class="my_text"><%= f.text_field :family_name, autofocus: true, autocomplete: "family_name"%> <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name"%></th>
+                </tr>
+                <tr>
+                    <th class="panel my_panel">カナ</th>
+                    <th class="my_text"><%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana" %> <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %></th>
+                </tr>
+                <tr>
+                    <th class="panel my_panel">電話番号</th>
+                    <th class="my_text"><%= f.text_field :tel, autofocus: true, autocomplete: "tel" %></th>
+                </tr>
+                <tr>
+                    <th class="panel my_panel">メールアドレス</th>
+                    <th class="my_text"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  <div class="actions container edit-btn-pd">
+    <%= f.submit "編集内容を保存する",class:"btn btn-primary center-block edit-btn" %>
+  </div>
+<% end %>

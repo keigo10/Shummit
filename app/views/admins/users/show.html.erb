@@ -1,0 +1,27 @@
+<div class="container">
+	<h1>会員詳細画面</h1>
+	<p><span>顧客ID</span>
+	<%= @user.id %>
+	<% if @user.deleted_at.nil? %>
+	<span style="background-color:#d0e4e2">有効会員</span>
+	<% else %>
+	<span>退会会員</span>
+	<% end %>
+	</p>
+	<p>氏名</p>
+	<%= @user.family_name %><%= @user.first_name %>
+	<p>フリガナ</p>
+	<%= @user.family_name_kana %><%= @user.first_name_kana %>
+	<p>郵便番号</p>
+	<%= @user.post_number %>
+	<p>住所</p>
+	<%= @user.address %>
+	<p>電話番号</p>
+	<%= @user.tel %>
+	<p>メールアドレス</p>
+	<%= @user.email %>
+	<p>
+	<%= link_to "編集する", edit_admin_user_path(@user.id) %>
+
+	</p>
+	</div>
