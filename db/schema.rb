@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_041611) do
+ActiveRecord::Schema.define(version: 2020_02_15_062045) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 2020_02_12_041611) do
     t.datetime "updated_at", null: false
     t.date "holding"
     t.text "description"
+    t.integer "postcode"
+    t.string "prefecture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "address_building"
     t.index ["genre_id"], name: "index_events_on_genre_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

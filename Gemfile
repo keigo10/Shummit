@@ -65,10 +65,10 @@ gem "paranoia"
 gem "kaminari","~>1.1.1"
 gem "bootstrap-sass","~>3.3.6"
 gem "jquery-rails"
+gem 'jp_prefecture'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "pry-byebug"
-# gem "ransack"
 gem "pry-rails"
 #gem 'enum_help'
 gem 'ransack'

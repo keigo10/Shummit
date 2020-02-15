@@ -23,12 +23,11 @@
 
   <div class="field">
     <h4>開催日<%= form.date_field :holding %>
-      <input type="text" id="datepicker"></h4>
   </div>
 
   <div class="field">
     <%= form.label :参加費 %>
-    <%= form.number_field :entrance_fee %>
+    <%= form.text_field :entrance_fee %>
   </div>
 
   <div class="field">
@@ -51,13 +50,20 @@
     <%= form.select :event_status,[["有効",true],["無効",false]] %>
   </div>
 
+  <h2>開催地</h2>
+  <p>郵便番号</p>
+  <%= form.text_field :postcode %>
+  <p>都道府県</p>
+  <%= form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+  <p>市町村</p>
+  <%= form.text_field :address_city %>
+  <p>番地</p>
+  <%= form.text_field :address_street %>
+  <p>施設名</p>
+  <%= form.text_field :address_building %>
+
+
   <div class="actions">
     <%= form.submit"更新する" ,class:"btn btn-primary" %>
   </div>
 <% end %>
-
-<script>
-  $('#datepicker').datepicker({
-        format: 'yyyy/mm/dd',language:'ja'
-    });
-</script>

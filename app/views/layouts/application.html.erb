@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
   </head>
   <body>
 <nav class="navbar navbar-fixed-top navbar-dark" role="navigation" style="background-color:#ffb000;">
@@ -60,17 +62,17 @@
                 <% else %>
                 <!-- sign upを表示 -->
                 <li class="">
-                  <%= link_to " Sign up", new_user_registration_path, class:"glyphicon glyphicon-edit sign_up head_item" %>
+                  <%= link_to " Sign up", new_user_registration_path, class:"glyphicon glyphicon-edit head_item" %>
                 </li>
                 <!-- loginを表示 -->
                 <li class="">
-                  <%= link_to " Login", new_user_session_path, class:"glyphicon glyphicon-log-in sign_in  head_item" %>
+                  <%= link_to " Login", new_user_session_path, class:"glyphicon glyphicon-log-in head_item" %>
                 </li>
                 <li class="">
                   <%= link_to " About", homes_about_path, class:"glyphicon glyphicon-apple  head_item" %>
                 </li>
                 <li class="">
-                  <%= link_to " Admin", new_admin_registration_path, class:"glyphicon glyphicon-edit sign_up head_item" %>
+                  <%= link_to " Admin", new_admin_registration_path, class:"glyphicon glyphicon-edit head_item" %>
                 </li>
                <% end %>
             </ul>

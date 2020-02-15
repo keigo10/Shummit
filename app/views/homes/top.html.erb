@@ -1,4 +1,4 @@
-<div class="container">
+<div class="top-img">
   <div class="row">
 
     <p id="notice"></p>
@@ -8,26 +8,23 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-
-    <div class="top-message col-md-offset-3 col-md-6">
-      <h1>welcome to <span class="glyphicon"><strong>Shummit</strong>  !!</span></h1>
-      <p>In  <span class="glyphicon"></span><strong>Shummmit</strong> </p>
-
-      <div class="btn-wrapper">
+    <div class="top-message" style="width: 450px;color: #fff;padding-left: 25px">
+      <h1 style="font-size: 700%;margin-top: 130px;">welcome to <span class="glyphicon"><strong>Shummit</strong></span></h1>
+      <h1 style="font-size: 250%;margin-top: 50px;"> <strong>新しい趣味を見つけよう</strong> </h1>
+    </div>
+    <div class="col-md-offset-3 col-md-6">
+      <div class="btn-wrapper col-xs-11" style="margin-top: 100px;">
       <!-- <div class="row"> -->
       <!--          <p><a class="btn btn-info col-xs-10 col-xs-offset-1 sign_in" href="/users/sign_in">Log in</a></p>
       -->
-            <%= link_to 'Log in', new_user_session_path,class: "btn btn-info col-xs-12 col-xs-offset-1 sign_in" %>
+            <%= link_to 'ログインする', new_user_session_path,class: "btn btn-info col-xs-12 col-xs-offset-1 sign_in" %>
 
       <!-- </div> -->
       <!-- <div class="row"> -->
 
-            <%= link_to 'Sign up', new_user_registration_path,class: "btn btn-success col-xs-12 col-xs-offset-1 sign_up" %>
+            <%= link_to '新しくアカウントを作る', new_user_registration_path,class: "btn btn-success col-xs-12 col-xs-offset-1 sign_up" %>
                 <!-- </div> -->
       </div>
-
     </div>
   </div>
-
-
 </div>

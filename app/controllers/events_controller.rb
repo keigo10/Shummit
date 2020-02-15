@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   end
 
   def main
-    @events = Event.all
+    @events = Event.page(params[:page]).reverse_order
     @genres = Genre.all
   end
 
@@ -89,6 +89,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:user_id, :genre_id, :events_name, :entrance_fee, :sports, :persons, :event_image_id, :event_status, :description, :holding)
+      params.require(:event).permit(:user_id, :genre_id, :events_name, :entrance_fee, :sports, :persons, :event_image_id, :event_status, :description, :holding, :postcode, :prefecture_code, :address_city, :address_street, :address_building)
     end
 end
