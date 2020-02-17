@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>イベント一覧</h1>
-<h2>ジャンル：<%= @genre.genre_name %><%= link_to '新しくイベントを立ち上げる', new_event_path, class: " btn-success text-center btn-block" %></h2>
+<h2>ジャンル：<%= @genre.genre_name %><%= link_to '新しくイベントを立ち上げる', new_event_path, class: " btn-success text-center btn-block new_event" %></h2>
 
 
 <div class="container m-mainlist-main">
@@ -31,10 +31,10 @@
 
         <div class="m-mainlist-item__link">
           <h4 class="m-mainlist-item__txt"><%= event.description %></h4>
-          <p class="m-mainlist-item__map"><a class="m-mainlist-item__maplink"><%= event.prefecture_code %></a>
+          <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.prefecture_code %></h4>
             <%= event.address_city %>
-          </p>
-          <p class="m-mainlist-item-event__place"><a class="m-mainlist-item-event__placelink"><%= event.address_street %></a></p>
+          </h3>
+          <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.address_street %></h4></h3>
           <p class="m-mainlist-item-event__place"><a class="m-mainlist-item-event__placelink"></a></p>
         </div>
         <a class="m-mainlist-item__img">

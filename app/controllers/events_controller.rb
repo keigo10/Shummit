@@ -48,7 +48,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event && @join_event
-        format.html { redirect_to @event }
+        format.html { redirect_to @event, notice: 'イベントを新しく立ち上げました。' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -62,7 +62,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event, notice: 'イベント情報を更新しました。' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -76,7 +76,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to events_main_path, notice: 'イベントを消去しました。' }
       format.json { head :no_content }
     end
   end
