@@ -35,7 +35,7 @@
             <%= event.address_city %>
           </h3>
           <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.address_street %></h4></h3>
-          <p class="m-mainlist-item-event__place"><a class="m-mainlist-item-event__placelink"></a></p>
+          <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.address_building %></h4></h3>
         </div>
         <a class="m-mainlist-item__img">
           <span><%= attachment_image_tag(@genre, :genre_image, :fill, 160, 160, fallback: "no_image.jpg") %></span>
