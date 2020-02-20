@@ -15,7 +15,7 @@
 				<%= f.id %>
 			</td>
 			<td>
-				<%=link_to f.family_name+f.first_name %>
+				<%=link_to f.family_name+f.first_name, admins_user_path(f.id)%>
 			</td>
 			<td>
 				<%= f.email %>
