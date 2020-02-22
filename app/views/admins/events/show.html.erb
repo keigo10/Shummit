@@ -1,0 +1,169 @@
+<h4 id="notice"><%= notice %></h4>
+<table class="table table-bordered" >
+      <thead>
+        <tr>
+          <h3 class="text-center" >イベント詳細</h3>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="my_text" >
+              <th class="text-center success">
+                <h3>主催者</h3>
+              </th>
+              <th class="text-center">
+                <h3><%= @event.user.family_name %><%= @event.user.first_name %></h3>
+              </th>
+          </tr>
+          <tr class="my_text ">
+              <th class="text-center success">
+                <h3>ジャンル</h3>
+              </th>
+              <th class="text-center">
+                <h3><%= @event.genre.genre_name %></h3>
+              </th>
+          </tr>
+          <tr class="my_text">
+              <th class="text-center success">
+                <h3>イベント名</h3>
+              </th>
+              <th class="text-center">
+                <h3><%= @event.events_name %></h3>
+              </th>
+          </tr>
+          <tr class="my_text">
+              <th class="text-center success">
+                <h3>参加費</h3>
+              </th>
+              <th class="text-center">
+                <h3><%= @event.entrance_fee %>円</h3>
+              </th>
+          </tr>
+          <tr class="my_text">
+              <th class="text-center success">
+                <h3>参加人数</h3>
+              </th>
+              <th class="text-center">
+                <h3><%= @event.persons %>人/<%= @event.join_events.length %>人参加中</h3>
+              </th>
+          </tr>
+          <tr class="my_text">
+              <th class="text-center success">
+                <h3>イベントステータス</h3>
+              </th>
+              <th class="text-center">
+                <% if @event.event_status==true %>
+                  <h3>開催中</h3>
+                  <% else %>
+                  <h3>終了</h3>
+                  <% end %>
+              </th>
+          </tr>
+          <tr class="my_text">
+              <th class="text-center success">
+                <h3>説明文</h3>
+              </th>
+              <th class="text-center my_text">
+                <h3><%= @event.description %></h3>
+              </th>
+          </tr>
+          <tr class="my_text">
+              <th class="text-center success">
+               <h3>開催日</h3>
+              </th>
+              <th class="text-center my_text">
+                <h3><%= @event.holding %></h3>
+              </th>
+          </tr>
+          <tr class="my_text">
+              <th class="text-center success">
+               <h3>開催地</h3>
+              </th>
+              <th class="text-center my_text">
+                <h3 id="map-address"><%= @event.prefecture_code %><%= @event.address_city %><%= @event.address_street %></h3>
+              </th>
+          </tr>
+          <tr class="my_text">
+              <th class="text-center success">
+               <h3>施設名</h3>
+              </th>
+              <th class="text-center">
+                <h3 id="map-address"><%= @event.address_building %></h3>
+              </th>
+          </tr>
+      </tbody>
+</table>
+
+<div id="map" style="width: 600px; height: 500px;"></div>
+<script>
+function initMap() {
+
+  var target = document.getElementById('map'); //マップを表示する要素を指定
+  var address = '<%= @event.prefecture_code %><%= @event.address_city %><%= @event.address_street %>'; //住所を指定
+  var geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode({ address: address }, function(results, status){
+    if (status === 'OK' && results[0]){
+
+      console.log(results[0].geometry.location);
+
+       var map = new google.maps.Map(target, {
+         center: results[0].geometry.location,
+         zoom: 18
+       });
+       console.log('aaa')
+       var marker = new google.maps.Marker({
+         position: results[0].geometry.location,
+         map: map,
+         animation: google.maps.Animation.DROP
+       });
+       console.log(map)
+
+    }else{
+      //住所が存在しない場合の処理
+      alert('住所が正しくないか存在しません。');
+      target.style.display='none';
+    }
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjWm0YH2y4fr0bMTXrlbbpiMP40H9ymVs&callback=initMap" asynx defer></script>
+
+  <table class="table table-bordered ">
+      <thead>
+        <tr>
+          <h3 class="text-center">イベント参加者</h3>
+        </tr>
+      </thead>
+      <thead>
+        <tr class="success my_text">
+          <th>
+            <h4 class="text-center">アイコン</h4>
+          </th>
+          <th>
+            <h4 class="text-center">名前</h4>
+          </th>
+          <th>
+            <h4 class="text-center">アドレス</h4>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @event.join_events.each do |join_event| %>
+          <tr class="my_text">
+              <th class="text-center col-md-2">
+                <%= attachment_image_tag(join_event.user, :profile_image, :fill, 62, 62, fallback: "no_image.jpg") %>
+              <th class="text-center col-md-5">
+                <h3><%= join_event.user.family_name %><%= join_event.user.first_name %></h3>
+              </th>
+              <th class="text-center col-md-5">
+                <h3><%= join_event.user.email %></h3>
+              </th>
+          </tr>
+          <% end %>
+      </tbody>
+  </table>
+
+  <%= link_to '掲示板へ行く', gloup_events_path(@event.id),class: " btn btn-default btn-lg" %>
+
+  <%= link_to 'イベントを編集する', edit_admins_event_path(@event),class: "btn btn-success btn-lg" %>
+  <%= link_to "イベントを削除する", event_path(@event), method: :delete,class: "btn btn-danger btn-lg ", "data-confirm" => "本当に削除しますか？" %><br></h2>

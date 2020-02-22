@@ -2,7 +2,7 @@ class BulletinBoardsController < ApplicationController
 
 	def destroy
 		event = Event.find(params[:event_id])
-	    comment = current_user.bulletin_boards.find_by(event_id: event.id)
+	    comment = current_user.bulletin_boards.find(params[:id])
 	    comment.destroy
 	    redirect_back(fallback_location: root_path)
     end

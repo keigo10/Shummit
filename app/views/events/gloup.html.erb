@@ -18,13 +18,13 @@
     <% @event.bulletin_boards.each do |bulletin_board| %>
           <tr class="comment">
             <td>
-              <div class="comment-body bb">
+              <div class="comment-body bb" style="width:500px;">
                 <div class="comment-avatar">
                   <div class="avatar">
                     <%= attachment_image_tag bulletin_board.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
                   </div>
                 </div>
-                <div class="comment-text" style="width:300px;">
+                <div class="comment-text" style="width:800px;">
                   <div class="comment-author clearfix">
                       <a href="#" class="link-author" style="font-size:25px;"><%= bulletin_board.user.family_name %><%= bulletin_board.user.first_name %></a>
                       <span class="comment-meta">
@@ -37,7 +37,7 @@
             </td>
             <% if user_signed_in? && bulletin_board.user.id == current_user.id %>
             <td class="comment-destroy pull-right">
-                  <%= link_to "コメントを削除する",event_bulletin_boards_path(@event.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger btn-lg" %>
+                  <%= link_to "コメントを削除する",event_bulletin_boards_path(@event.id, id: bulletin_board.id ), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger btn-lg" %>
             </td>
             <% end %>
           </tr>

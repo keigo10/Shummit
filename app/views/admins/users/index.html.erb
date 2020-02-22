@@ -6,6 +6,7 @@
 			<th>氏名</th>
 			<th>メールアドレス</th>
 			<th>ステータス</th>
+			<th>詳細</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,7 +28,9 @@
 				<p>退会済</p>
 				<% end %>
 			</td>
-
+			<td>
+				<%= link_to '詳細', admins_user_path(f.id),class:"btn btn-primary center-block" %>
+			</td>
 		</tr>
 		<% end %>
 	</tbody>

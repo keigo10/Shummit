@@ -19,3 +19,18 @@ ja:
         family_name_kana: セイ
         first_name_kana: メイ
         tel: 電話番号
+
+ja:
+  activerecord:
+    attributes:
+      event:
+        events_name: イベント名
+        entrance_fee: 参加費
+        persons: 参加人数
+        holding: 開催日
+        description: イベント説明
+        postcode: 郵便番号
+        prefecture_code: 県名
+        address_city: 市区町村
+        address_street: 番地
+        address_building: 施設名

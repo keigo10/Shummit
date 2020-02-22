@@ -50,14 +50,14 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     user = User.find(current_user.id)
-    @event = user.events.create(event_params)
-    @join_event = user.join_events.create(event_id: @event.id)
-
+    @event = user.events.new(event_params)
     respond_to do |format|
-      if @event && @join_event
+      if @event.save
+        @join_event = user.join_events.create(event_id: @event.id)
         format.html { redirect_to @event, notice: 'イベントを新しく立ち上げました。' }
         format.json { render :show, status: :created, location: @event }
       else
+        # format.html { redirect_back(fallback_location: new_event_path)}
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
