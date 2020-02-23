@@ -1,17 +1,17 @@
-<h1 class ="taitl heading">~MY PAGE~</h1>
+<h1 class ="taitl heading">マイページ</h1>
 
-<h3 class = "taitl-info">登録情報　<%= link_to '編集する', edit_user_path , class:"btn btn-primary" %>
+<h3 class = "taitl-info" style="padding-top:60px;">登録情報　<%= link_to '編集する', edit_user_path , class:"btn btn-primary" %>
     <%= link_to 'パスワードを変更する', edit_user_password_path , class:"btn btn-primary" %>
 </h3>
-<div class ="container">
+<div class ="container" style="padding-top:60px;">
 	<div class ="col-xs-12">
 		<div class ="col-xs-3">
-        <%= attachment_image_tag(@user, :profile_image, :fill, 150, 150, fallback: "no_image.jpg") %>
+        <%= attachment_image_tag(@user, :profile_image, :fill, 225, 225, fallback: "no_image.jpg", class:"profile_image") %>
         </div>
         <div class ="col-xs-9">
-			<table class="table my_table">
+			<table class="table my_text" style="font-size:25px;">
 				<tr>
-					<th class="panel my_panel">指名</th><th class="my_text"><%= @user.family_name %>  <%= @user.first_name %></th>
+					<th class="panel my_panel col-xs-3">指名</th><th class="my_text"><%= @user.family_name %>  <%= @user.first_name %></th>
 				</tr>
 				<tr>
 					<th class="panel my_panel">カナ</th><th class="my_text"><%= @user.family_name_kana %>  <%= @user.first_name_kana %></th>
@@ -26,5 +26,5 @@
 		</div>
 	</div>
 </div>
-<h3 class = "">参加中イベント　　<%= link_to '一覧を見る', users_joining_events_path , class:"btn btn-primary" %></h3>
-<h3 class = "h3_space">立ち上げたイベント　　<%= link_to '一覧を見る', users_my_events_path , class:"btn btn-primary" %></h3>
+<h3 class = "" style="padding-top:60px;">参加中イベント　　<%= link_to '一覧を見る', users_joining_events_path , class:"btn btn-primary" %></h3>
+<h3 class = "h3_space" style="padding-top:60px;">立ち上げたイベント　　<%= link_to '一覧を見る', users_my_events_path , class:"btn btn-primary" %></h3>

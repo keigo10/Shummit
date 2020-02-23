@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>会員詳細画面</h1>
-	<p><span>顧客ID</span>
+	<p style="font-size: 30px"><span>顧客ID</span>
 	<%= @user.id %>
 	<% if @user.deleted_at.nil? %>
 	<span style="background-color:#d0e4e2">有効会員</span>
@@ -8,20 +8,30 @@
 	<span>退会会員</span>
 	<% end %>
 	</p>
-	<p>氏名</p>
-	<%= @user.family_name %><%= @user.first_name %>
-	<p>フリガナ</p>
-	<%= @user.family_name_kana %><%= @user.first_name_kana %>
-	<p>郵便番号</p>
-	<%= @user.post_number %>
-	<p>住所</p>
-	<%= @user.address %>
-	<p>電話番号</p>
-	<%= @user.tel %>
-	<p>メールアドレス</p>
-	<%= @user.email %>
-	<p>
-	<%= link_to "編集する", edit_admin_user_path(@user.id) %>
+	<%= link_to "編集する", edit_admins_user_path(@user.id),class: "btn btn-success btn-lg" %>
+	<div class ="container" style="padding-top:60px;">
+	<div class ="col-xs-12">
+		<div class ="col-xs-3">
+        <%= attachment_image_tag(@user, :profile_image, :fill, 225, 225, fallback: "no_image.jpg", class:"profile_image") %>
+        </div>
+        <div class ="col-xs-9">
+			<table class="table my_text" style="font-size:25px;">
+				<tr>
+					<th class="panel my_panel col-xs-3">名</th><th class="my_text"><%= @user.family_name %>  <%= @user.first_name %></th>
+				</tr>
+				<tr>
+					<th class="panel my_panel">カナ</th><th class="my_text"><%= @user.family_name_kana %>  <%= @user.first_name_kana %></th>
+				</tr>
+				<tr>
+					<th class="panel my_panel">電話番号</th><th class="my_text"><%= @user.tel %></th>
+				</tr>
+				<tr>
+					<th class="panel my_panel">メールアドレス</th><th class="my_text"><%= @user.email %></th>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
 
 	</p>
 	</div>

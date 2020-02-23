@@ -39,12 +39,12 @@
         </div>
 
         <div class="m-mainlist-item__link">
-          <h4 class="m-mainlist-item__txt"><%= event.description %></h4>
-          <p class="m-mainlist-item__map"><a class="m-mainlist-item__maplink"><%= event.prefecture_code %></a>
+          <p class="m-mainlist-item__map" style="font-size: 20px"><%= event.prefecture_code %>
             <%= event.address_city %>
           </p>
-          <p class="m-mainlist-item-event__place"><a class="m-mainlist-item-event__placelink"><%= event.address_street %></a></p>
-          <p class="m-mainlist-item-event__place"><a class="m-mainlist-item-event__placelink">ジャンル：<%= event.genre.genre_name %></a></p>
+          <p class="m-mainlist-item__map" style="font-size: 20px"><%= event.address_street %></a>
+          <p class="m-mainlist-item__map" style="font-size: 20px">ジャンル：<%= event.genre.genre_name %></p>
+          <p class="m-mainlist-item__map" style="font-size: 20px"><%= event.description %></p>
         </div>
         <a class="m-mainlist-item__img">
           <span><%= attachment_image_tag(event.genre, :genre_image, :fill, 160, 160, fallback: "no_image.jpg") %></span>

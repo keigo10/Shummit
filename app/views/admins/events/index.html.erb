@@ -1,10 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>イベント一覧</h1>
-<h2>ジャンル：<%= @genre.genre_name %><%= link_to '新しくイベントを立ち上げる', new_event_path, class: " btn-success text-center btn-block new_event" %></h2>
-
-
-<div class="container m-mainlist-main">
+<div class="container m-mainlist-main col-xs-12">
   <ul class = "m-mainlist-list">
   <% @events.each do |event| %>
     <li class="container m-mainlist__item">
@@ -26,24 +20,22 @@
           <p class="m-mainlist-item-event__place"><h3 class="m-mainlist-item-event__placelink">主催者/<%= event.user.family_name %><%= event.user.first_name %></h3></p>
           <p class="m-mainlist-item-event__place"><h3 class="m-mainlist-item-event__placelink">参加費/<%= event.entrance_fee %>円</h3></p>
           <p class="m-mainlist-item-event__place"><h3 class="m-mainlist-item-event__placelink">参加人数/<%= event.persons %>中<%=event.join_events.length %>人参加</h3></p>
-          <%= link_to '詳細', event,class:"btn btn-primary center-block" %>
+          <%= link_to '詳細', admins_event_path(event.id),class:"btn btn-primary center-block" %>
         </div>
 
         <div class="m-mainlist-item__link">
-          <h4 class="m-mainlist-item__txt"><%= event.description %></h4>
-          <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.prefecture_code %></h4>
+          <p class="m-mainlist-item__map" style="font-size: 20px"><%= event.prefecture_code %>
             <%= event.address_city %>
-          </h3>
-          <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.address_street %></h4></h3>
-          <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.address_building %></h4></h3>
+          </p>
+          <p class="m-mainlist-item__map" style="font-size: 20px"><%= event.address_street %></a>
+          <p class="m-mainlist-item__map" style="font-size: 20px">ジャンル：<%= event.genre.genre_name %></p>
+          <p class="m-mainlist-item__map" style="font-size: 20px"><%= event.description %></p>
         </div>
         <a class="m-mainlist-item__img">
-          <span><%= attachment_image_tag(@genre, :genre_image, :fill, 160, 160, fallback: "no_image.jpg") %></span>
+          <span><%= attachment_image_tag(event.genre, :genre_image, :fill, 160, 160, fallback: "no_image.jpg") %></span>
         </a>
       </div>
     </li>
   <% end %>
   </ul>
 </div>
-
-

@@ -28,6 +28,13 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @user = User.find(current_user.id)
+    @bulletin_board = BulletinBoard.new
+  end
+
+  def gloup
+    @event = Event.find(params[:id])
+    @user = User.find(current_user.id)
+    @bulletin_board = BulletinBoard.new
   end
 
   # GET /events/new
@@ -43,14 +50,14 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     user = User.find(current_user.id)
-    @event = user.events.create(event_params)
-    @join_event = user.join_events.create(event_id: @event.id)
-
+    @event = user.events.new(event_params)
     respond_to do |format|
-      if @event && @join_event
+      if @event.save
+        @join_event = user.join_events.create(event_id: @event.id)
         format.html { redirect_to @event, notice: 'イベントを新しく立ち上げました。' }
         format.json { render :show, status: :created, location: @event }
       else
+        # format.html { redirect_back(fallback_location: new_event_path)}
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -89,6 +96,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:user_id, :genre_id, :events_name, :entrance_fee, :sports, :persons, :event_image_id, :event_status, :description, :holding, :postcode, :prefecture_code, :address_city, :address_street, :address_building)
+      params.require(:event).permit(:event_id, :user_id, :genre_id, :events_name, :entrance_fee, :sports, :persons, :event_image_id, :event_status, :description, :holding, :postcode, :prefecture_code, :address_city, :address_street, :address_building)
     end
 end

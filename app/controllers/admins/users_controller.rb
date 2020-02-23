@@ -7,11 +7,11 @@ class Admins::UsersController < ApplicationController
   end
 
   def show
-	 @user=User.with_deleted.find(params[:id])
+	 @user=User.find(params[:id])
   end
 
   def edit
-  	@user=User.with_deleted.find(params[:id])
+  	@user=User.find(params[:id])
     # pp @user  メンターさんが入れて便利な機能と思われる
   end
   def update

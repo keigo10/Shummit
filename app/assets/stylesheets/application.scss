@@ -17,6 +17,16 @@
 @import "bootstrap-sprockets";
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
 
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(font-path('glyphicons-halflings-regular.eot'));
+  src: url(font-path('glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'),
+       url(font-path('glyphicons-halflings-regular.woff2')) format('woff2'),
+       url(font-path('glyphicons-halflings-regular.woff')) format('woff'),
+       url(font-path('glyphicons-halflings-regular.ttf')) format('truetype'),
+       url(font-path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
+}
+
 *, :after, :before {
     box-sizing: border-box;
 }
@@ -53,13 +63,17 @@ p, span, table, tbody, thead, time, tr, ul{
     font-weight: 400;
     vertical-align: baseline;
     background: 0 0;
+    word-break: break-all;
 }
 
 body {
-	background-image: url(KAZ19514003_TP_V.jpg);
+	background: image-url('KAZ19514003_TP_V.jpg');
 	background-color:rgba(255,255,255,0.6);
 	background-blend-mode:lighten;
 	background-attachment: fixed;
+}
+.icon {
+  background: image-url('rogo.jpg');
 }
 
 .sign_in {
@@ -69,18 +83,27 @@ body {
 	font-size: 300%;
 }
 
+.navbar-nav>li>a{
+  color:#fff;
+  font-size: 20px;
+  margin-top: 17px;
+}
+
+.navbar-nav>li>a:hover{
+  background-color: #ff8d00;
+}
+
 .top-img {
    width: 100%;
    height: 870px;
-   background-image: url(top_img.jpg);
+   background: image-url('top_img.jpg');
    margin:  0 auto;
 }
 
 .main-visual {
   width: 100%;
   height: 620px;
-  background-image: url(006KZ1123FOTO_TP_V.jpg);
-  background-color:rgba(255,255,255,0.2);
+  background: image-url('006KZ1123FOTO_TP_V.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -89,9 +112,19 @@ body {
   height: 620px;
   background: rgba(0,0,0,0.5);
   text-align: center;
-  padding-top: 250px;
+  padding-top: 180px;
+}
+.my_text {
+  border: double #9d9d9d;
+  background-color:#fff;
+}
+.my_table {
+  border: double #72d7dc38;
 }
 
+nav>.container {
+  width: 80%;
+}
 .new_event {
   padding: 6px;
   margin: 8px;
@@ -103,6 +136,10 @@ body {
 .main-visual-name {
   color: #fff;
   margin-top: 30px;
+}
+
+.navbar-fixed-top{
+  height: 80px;
 }
 
 .container-app{
@@ -176,12 +213,14 @@ body {
     background-image: url(/asset/images/common/icon_map.png);
     background-repeat: no-repeat;
     background-position: 2px top;
-    margin: 5px 0;
+    margin: 10px 0;
+    font-size: 20px;
 }
 
 .m-mainlist-item__maplink {
     margin: 0 5px 0 0;
     color: #666;
+    font-size: 13px;
 }
 
 .m-mainlist-item-event__place {

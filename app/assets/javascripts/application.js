@@ -15,13 +15,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
-$(function() {
-    $('.a').slick({
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 1000,
-    });
-});
 
 window.onload = function () {
     document.getElementById( "sampleBox" ).onscroll = function(){
