@@ -21,3 +21,13 @@ window.onload = function () {
         getTheScrollPosition( this );
     };
 }
+
+$(function() {
+
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+
+ });
