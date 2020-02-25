@@ -33,7 +33,7 @@ User側：
 *他のUserが立ち上げたイベントに参加し、掲示板にてやり取りする。  
 
 # Authors
-[keigo10]()
+[keigo10](https://github.com/keigo10)
 
 # References
 https://qiita.com/38lvd3/items/c1a44abfd5cb8eb14bd3
