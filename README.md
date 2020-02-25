@@ -20,7 +20,7 @@ Userがイベントを立ち上げ、他のUserがそのイベントに参加す
 # gem
 *gem "devise"  
 *gem "paranoia"  
-*gem "kaminari","~>1.1.1"
+*gem "kaminari","~>1.1.1"  
 *gem "bootstrap-sass","~>3.3.6"  
 *gem "jquery-rails"  
 *gem 'jp_prefecture'  
