@@ -72,6 +72,27 @@ body {
 	background-blend-mode:lighten;
 	background-attachment: fixed;
 }
+
+select::-ms-expand {
+  display: none;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-bottom: 20px;
+  padding: 7px 30px 7px 10px;
+  font-size: 93%;
+  line-height: 1.1em;
+  border-radius: 5px;
+  border: none;
+  background: image-url('pic03-14.jpg');
+  background-repeat: no-repeat;
+  background-size: 12px 10px;
+  background-position: right 10px center;
+  background-color: #ffcb6b85;
+}
+
 .icon {
   background: image-url('rogo.jpg');
 }
