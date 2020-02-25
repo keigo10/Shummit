@@ -17,6 +17,11 @@ Userがイベントを立ち上げ、他のUserがそのイベントに参加す
 *Rails 5.2.4.1  
 *gem 2.7.6.2  
 # Setup
+*$ git clone https://github.com/mkkoala/SeichiSearch.git  
+*$ cd SeichiSearch  
+*$ bundle install  
+*$ rails db:migrate  
+*$ ~do anything~  
 
 # Usage
 管理者側：  
