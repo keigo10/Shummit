@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'gloup/:id', to:'events#gloup', as:'gloup_events'
 
   resources :events do
-    resource :bulletin_boards, only: [:create, :destroy]
+    resources :bulletin_boards, only: [:create, :destroy]
     resource :join_events
 end
 

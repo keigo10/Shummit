@@ -163,15 +163,14 @@ function initMap() {
       </tbody>
   </table>
 
-  <%= link_to '掲示板へ行く', gloup_events_path(@event.id),class: " btn btn-default btn-lg" %>
-
   <% if @event.user.id == current_user.id %>
   <% else %>
-    <%= link_to "イベントを抜ける", event_join_events_path(@event), method: :delete,class: "btn btn-danger btn-lg", "data-confirm" => "本当にイベントを抜けますか" %>
+    <%= link_to '掲示板へ行く', gloup_events_path(@event.id),class: " btn btn-default btn-lg pull-left ", :style=>"margin:40px;" %>
+    <%= link_to "イベントを抜ける", event_join_events_path(@event), method: :delete,class: "btn btn-danger btn-lg btn-margin", :style=>"margin:40px;", "data-confirm" => "本当にイベントを抜けますか" %>
   <% end %>
 <% else %>
   <%  if @event.join_events.length < @event.persons %>
-  <%= link_to "イベントに参加する", event_join_events_path(@event), method: :post,class: "btn btn-primary btn-lg" %>
+  <%= link_to "イベントに参加する", event_join_events_path(@event), method: :post,class: "btn btn-primary btn-lg pull-left btn-margin", :style=>"margin:40px;" %>
 
   <% else %>
     <h3>参加者がいっぱいです</h3>
@@ -180,7 +179,8 @@ function initMap() {
 <% end %>
 
 <% if @event.user.id == current_user.id %>
-  <%= link_to 'イベントを編集する', edit_event_path(@event),class: "btn btn-success btn-lg" %>
-  <%= link_to "イベントを削除する", event_path(@event), method: :delete,class: "btn btn-danger btn-lg ", "data-confirm" => "本当に削除しますか？" %><br></h2>
+  <%= link_to '掲示板へ行く', gloup_events_path(@event.id),class: " btn btn-default btn-lg pull-left ", :style=>"margin:40px;" %>
+  <%= link_to 'イベントを編集する', edit_event_path(@event),class: "btn btn-success btn-lg btn-margin", :style=>"margin:40px;" %>
+  <%= link_to "イベントを削除する", event_path(@event), method: :delete,class: "btn btn-danger btn-lg pull-right", "data-confirm" => "本当に削除しますか？", :style=>"margin:40px;" %><br></h2>
 <% else %>
 <% end %>

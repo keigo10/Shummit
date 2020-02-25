@@ -1,0 +1,26 @@
+
+<tr id="comment-<%= bulletin_board.id %>">
+<td>
+  <div class="comment-body bb" style="width:80%;">
+    <div class="comment-avatar">
+      <div class="avatar">
+        <%= attachment_image_tag bulletin_board.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+      </div>
+    </div>
+    <div class="comment-text" style="width:155%;">
+      <div class="comment-author clearfix">
+          <a href="#" class="link-author" style="font-size:25px;"><%= bulletin_board.user.family_name %><%= bulletin_board.user.first_name %></a>
+          <span class="comment-meta">
+            <span class="comment-date" style="font-size:25px;"><%= bulletin_board.created_at.strftime('%Y/%m/%d') %></span>
+          </span>
+      </div>
+      <div class="comment-entry"><p style="font-size:25px;padding-top:"><%= bulletin_board.comment %><p></div>
+    </div>
+  </div>
+</td>
+<% if user_signed_in? && bulletin_board.user.id == current_user.id %>
+<td class="comment-destroy pull-right">
+      <%= link_to "コメントを削除する",event_bulletin_board_path(event_id:bulletin_board.event.id, id: bulletin_board.id ), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"},remote:true, class: "btn btn-danger btn-lg" %>
+</td>
+<% end %>
+</tr>

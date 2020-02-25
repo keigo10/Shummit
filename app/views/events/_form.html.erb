@@ -18,27 +18,27 @@
 
   <div class="field">
     <h4>イベント名</h4>
-    <%= form.text_field :events_name, :size=>"30" %>
+    <%= form.text_field :events_name, :size=>"30",style: "border:double" %>
   </div>
 
   <div class="field">
     <h4>開催日</h4>
-    <%= form.date_field :holding %>
+    <%= form.date_field :holding,style: "border:double" %>
   </div>
 
   <div class="field">
     <h4>参加費</h4>
-    <%= form.text_field :entrance_fee %>
+    <%= form.text_field :entrance_fee,style: "border:double" %>
   </div>
 
   <div class="field" style="margin-top: 10px;">
     <h4>人数</h4>
-    <%= form.number_field :persons %>
+    <%= form.number_field :persons,style: "border:double" %>
   </div>
 
   <div class="field" style="margin-top: 10px;">
     <h4>説明文</h4>
-    <%= form.text_area :description, :size=>"60x5" %>
+    <%= form.text_area :description, :size=>"60x5",style: "border:double" %>
   </div>
 
   <div class="field" style="margin-top: 10px;">
@@ -48,15 +48,15 @@
 
   <h2>開催地</h2>
   <p>郵便番号</p>
-  <%= form.text_field :postcode %>
+  <%= form.text_field :postcode,style: "border:double" %>
   <p>都道府県</p>
   <%= form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
   <p>市町村</p>
-  <%= form.text_field :address_city %>
+  <%= form.text_field :address_city,style: "border:double" %>
   <p>番地</p>
-  <%= form.text_field :address_street %>
+  <%= form.text_field :address_street,style: "border:double" %>
   <p>施設名</p>
-  <%= form.text_field :address_building %>
+  <%= form.text_field :address_building,style: "border:double" %>
 
 
   <div class="actions">
