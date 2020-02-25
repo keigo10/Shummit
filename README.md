@@ -12,10 +12,10 @@ Userがイベントを立ち上げ、他のUserがそのイベントに参加す
 
 # Dependency
 
-*ruby 2.5.7p206 
-*bootstrap-sass","~>3.3.6"
-*Rails 5.2.4.1
-*gem 2.7.6.2
+*ruby 2.5.7p206  
+*bootstrap-sass","~>3.3.6"  
+*Rails 5.2.4.1  
+*gem 2.7.6.2  
 # Setup
 
 # Usage
