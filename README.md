@@ -30,8 +30,8 @@ Userがイベントを立ち上げ、他のUserがそのイベントに参加す
 *gem 'rails-i18n'  
 
 # Setup
-*$ git clone https://github.com/keigo10/Shummit.git 
-*$ cd Shummit 
+*$ git clone https://github.com/keigo10/Shummit.git  
+*$ cd Shummit  
 *$ bundle install  
 *$ rails db:migrate  
 
