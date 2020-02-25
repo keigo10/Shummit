@@ -4,6 +4,7 @@
 趣味とcommitを合わせて、Shummitという名前にしました。
 
 # name
+<img width="1440" alt="スクリーンショット 2020-02-25 18 59 05" src="https://user-images.githubusercontent.com/57954776/75236426-1c3a0f00-5801-11ea-8981-af554cc01659.png">
  Shummit
 趣味で繋がるSNSサイト。  
 Userがイベントを立ち上げ、他のUserがそのイベントに参加することができます。    
