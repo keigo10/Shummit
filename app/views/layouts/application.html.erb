@@ -18,10 +18,44 @@
     <div class="navbar-header">
       <a class="navbar-brand " href="/" ><%= image_tag 'rogo.jpg', size: '50x50' %></a>
       <a class="navbar-brand " href="/" style="font-family: 'Ubuntu Mono', monospace;font-size: 400%;color:#fff;margin-top: 17px;">Shummit</a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <div id="sp-menu">
+      <h2>MENU</h2>
+      <% if admin_signed_in? %>
+      <ul>
+        <li><%= link_to (destroy_admin_session_path), method: :delete do %> <span class="glyphicon glyphicon-log-out logout head_item"></span> ログアウト <% end %></li>
+        <li><%= link_to "会員一覧", admins_users_path,class:"glyphicon glyphicon-cart cart head_item" %></li>
+        <li><%= link_to "ジャンル一覧", admins_genres_path,class:"glyphicon glyphicon-cart cart" %></li>
+        <li><%= link_to "イベント一覧", admins_events_path,class:"glyphicon glyphicon-cart cart head_item" %></li>
+      </ul>
+      <% elsif user_signed_in? %>
+      <ul>
+        <li><%= link_to (destroy_user_session_path), method: :delete do %><span class="glyphicon glyphicon-log-out logout "></span> ログアウト <% end %></li>
+        <li><%= link_to (events_main_path) do %><span class="glyphicon glyphicon-home home" aria-hidden="ture"></span>メインページ<% end %></li>
+        <li><%= link_to " マイページ", user_path(current_user),class:"glyphicon glyphicon-log-in login" %></li>
+        <li><%= link_to " ジャンル一覧", events_genre_path(current_user),class:"glyphicon glyphicon-log-in login" %></li>
+      </ul>
+      <% else %>
+      <ul>
+        <li><%= link_to " 新規登録", new_user_registration_path, class: "glyphicon glyphicon-edit" %></li>
+        <li><%= link_to " ログイン", new_user_session_path, class: "glyphicon glyphicon-log-in" %></li>
+        <li><%= link_to " About", homes_about_path, class: "glyphicon glyphicon-log-in" %></li>
+        <li><%= link_to " 管理者", new_admin_session_path, class:"glyphicon glyphicon-edit head_item" %></li>
+      </ul>
+      <% end %>
+    </div>
+    <div id="hm-icon">
+      <a class="menu-trigger" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+      </button>
     </div>
     <div class="pull-right" >
       <!-- <header class="navbar navbar-fixed-top navbar-inverse"> -->
-      <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+      <ul d="navbar" class="nav navbar-nav navbar-right navbar-collapse collapse" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
 
       <!-- サインインしている場合の表示 -->
         <% if admin_signed_in? %>
