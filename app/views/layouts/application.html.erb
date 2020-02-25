@@ -81,7 +81,7 @@
             <%= link_to (destroy_user_session_path), method: :delete do %><span class="glyphicon glyphicon-log-out logout "></span> ログアウト <% end %>
           </li>
           <li>
-            <%= link_to (events_main_path) do %><span class="glyphicon glyphicon-home home" aria-hidden="ture"></span>メインページ<% end %>
+            <%= link_to (events_main_path) do %><span class="glyphicon glyphicon-home home" aria-hidden="ture"></span> メインページ<% end %>
           </li>
           <li class="">
             <%= link_to " マイページ", user_path(current_user),class:"glyphicon glyphicon-log-in login" %>
@@ -117,6 +117,17 @@
           <p class="text-muted text-right">Copyright (C) 2020　Shummit</p>
       </div>
     </footer>
+    <script>
+      $(function() {
+
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+
+ });
+    </script>
   </body>
 </html>
 
