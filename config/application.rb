@@ -17,5 +17,17 @@ module Shummit
     # the framework and any gems in your application.
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
     config.i18n.default_locale = :ja
+
+    config.generators do |g|
+      # 色々な記述があるので、一番下に追記する
+      g.test_framework :rspec,
+                       fixtures: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: true,
+                       request_specs: false
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
+    end
   end
 end
