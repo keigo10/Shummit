@@ -46,6 +46,11 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def search
+    @search = Event.ransack(params[:q])
+    @events = @search.result
+  end
+
   # POST /events
   # POST /events.json
   def create

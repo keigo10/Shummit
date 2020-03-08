@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>イベント一覧</h1>
+
+<div class="container m-mainlist-main">
+  <ul class = "m-mainlist-list">
+  <% @events.each do |event| %>
+    <li class="container m-mainlist__item">
+      <div class="m-mainlist-item">
+        <a>
+          <span class="m-mainlist-item__ttl"><%= event.events_name %></span>
+        </a>
+        <p class="m-mainlist-item-event__period">
+        <span class="m-mainlist-item-event__open">
+          <% if event.event_status==true %>
+                  開催予定
+                  <% else %>
+                  終了
+                  <% end %>
+        </span>
+          開催日：<%= event.holding %>
+        </p>
+        <div class="m-mainlist-item__link">
+          <p class="m-mainlist-item-event__place"><h3 class="m-mainlist-item-event__placelink">主催者/<%= event.user.family_name %><%= event.user.first_name %></h3></p>
+          <p class="m-mainlist-item-event__place"><h3 class="m-mainlist-item-event__placelink">参加費/<%= event.entrance_fee %>円</h3></p>
+          <p class="m-mainlist-item-event__place"><h3 class="m-mainlist-item-event__placelink">参加人数/<%= event.persons %>中<%=event.join_events.length %>人参加</h3></p>
+          <%= link_to '詳細', event,class:"btn btn-primary center-block" %>
+        </div>
+
+        <div class="m-mainlist-item__link">
+          <h4 class="m-mainlist-item__txt"><%= event.description %></h4>
+          <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.prefecture_code %></h4>
+            <%= event.address_city %>
+          </h3>
+          <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.address_street %></h4></h3>
+          <h3 class="m-mainlist-item-event__place"><h4 class="m-mainlist-item-event__placelink"><%= event.address_building %></h4></h3>
+        </div>
+        <a class="m-mainlist-item__img">
+          <span><%= attachment_image_tag(event.genre, :genre_image, :fill, 160, 160, fallback: "no_image.jpg") %></span>
+        </a>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+</div>

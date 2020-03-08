@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'users/my_events'
 
   get 'gloup/:id', to:'events#gloup', as:'gloup_events'
+  get 'events/search'
 
   resources :events do
     resources :bulletin_boards, only: [:create, :destroy]
