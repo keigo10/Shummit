@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
 
-before_action  :configure_permitted_parameters, if: :devise_controller?
+before_action :configure_permitted_parameters, if: :devise_controller?
+before_action :set_search
+
+def set_search
+    @search = Event.ransack(params[:q])
+    @search_events = @search.result
+end
 
 	def after_sign_in_path_for(resource)
   	if admin_signed_in?

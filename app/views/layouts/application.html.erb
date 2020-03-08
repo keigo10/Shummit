@@ -18,7 +18,16 @@
     <div class="navbar-header">
       <a class="navbar-brand " href="/" ><%= image_tag 'rogo.jpg', size: '50x50' %></a>
       <a class="navbar-brand " href="/" style="font-family: 'Ubuntu Mono', monospace;font-size: 400%;color:#fff;margin-top: 17px;">Shummit</a>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <% if admin_signed_in? || user_signed_in? %>
+      <div class="pull-left" style="margin-top: 30px;">
+      <%= search_form_for @search, url: "/events/search" do |f| %>
+          <%= f.text_field :prefecture_code_or_address_city_or_events_name_or_description_or_holding_cont, :size=>"23x5", placeholder: 'イベントを入力してください' %>
+          <%= f.submit ("検索") %>
+      <% end %>
+      </div>
+      <% else %>
+      <% end %>
+      <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <div id="sp-menu">
       <h2>MENU</h2>
       <% if admin_signed_in? %>
@@ -118,17 +127,6 @@
       </div>
     </footer>
   </body>
-  <script>
-      $(function() {
-
-        $('.menu-trigger').on('click', function() {
-          $(this).toggleClass('active');
-          $('#sp-menu').fadeToggle();
-          return false;
-        });
-
-       });
-    </script>
 </html>
 
 
