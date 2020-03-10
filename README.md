@@ -11,6 +11,7 @@ Userがイベントを立ち上げ、他のUserがそのイベントに参加す
 開催場所をgoogleAPIを使いMap表示させたり、イベントに参加しているグループメンバー間でやりとりできます。  
 
 # VPC
+<img width="1286" alt="スクリーンショット 2020-03-10 15 10 31" src="https://user-images.githubusercontent.com/57954776/76287854-caa58000-62e8-11ea-863c-6497d5fe2fb6.png">
 
 
 # Dependency
