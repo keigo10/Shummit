@@ -10,6 +10,8 @@
 Userがイベントを立ち上げ、他のUserがそのイベントに参加することができます。    
 開催場所をgoogleAPIを使いMap表示させたり、イベントに参加しているグループメンバー間でやりとりできます。  
 
+# VPC
+
 
 # Dependency
 
@@ -19,16 +21,19 @@ Userがイベントを立ち上げ、他のUserがそのイベントに参加す
 *gem 2.7.6.2  
 
 # gem
-*gem "devise"  
-*gem "paranoia"  
-*gem "kaminari","~>1.1.1"  
-*gem "bootstrap-sass","~>3.3.6"  
-*gem "jquery-rails"  
-*gem 'jp_prefecture'  
+*gem "devise"(認証機能の実装)  
+*gem "paranoia"（論理削除の実装）  
+*gem "kaminari","~>1.1.1"（ページネーションの実装）  
+*gem "bootstrap-sass","~>3.3.6"（ブートストラップの実装）  
+*gem "jquery-rails"（jqueryの実装）  
+*gem 'jp_prefecture'（都道府県名の取得）  
 *gem "refile", require: "refile/rails", github: 'manfe/refile'  
-*gem "refile-mini_magick"  
-*gem "pry-byebug"  
-*gem 'rails-i18n'  
+*gem "refile-mini_magick"（画像の表示）  
+*gem "pry-byebug"（デバック）  
+*gem 'rails-i18n'（日本語化対応）  
+*gem 'ransack'（検索機能）  
+*gem 'rubocop', require: false  (コードの自動修正)
+*gem 'rubocop-rails'  （コードの自動修正）
 
 # Setup
 *$ git clone https://github.com/keigo10/Shummit.git  
