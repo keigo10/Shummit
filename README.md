@@ -12,7 +12,8 @@ Userがイベントを立ち上げ、他のUserがそのイベントに参加す
 
 # VPC
 <img width="1286" alt="スクリーンショット 2020-03-10 15 10 31" src="https://user-images.githubusercontent.com/57954776/76287854-caa58000-62e8-11ea-863c-6497d5fe2fb6.png">
-<img width="410" alt="スクリーンショット 2020-03-10 16 13 57" src="https://user-images.githubusercontent.com/57954776/76288538-48b65680-62ea-11ea-9b7c-8f1e84fcf8e8.png">
+<img width="410" alt="スクリーンショット 2020-03-10 16 13 57" src="https://user-images.githubusercontent.com/57954776/76288538-48b65680-62ea-11ea-9b7c-8f1e84fcf8e8.png">  
+
 # Dependency
 
 *ruby 2.5.7p206  
