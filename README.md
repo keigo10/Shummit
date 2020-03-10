@@ -35,6 +35,7 @@ Userがイベントを立ち上げ、他のUserがそのイベントに参加す
 *$ cd Shummit  
 *$ bundle install  
 *$ rails db:migrate  
+*　eventのshowページにあるAPI_KEYはご自身のKEYをご使用ください。  
 
 # Usage
 管理者側：  
