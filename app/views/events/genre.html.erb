@@ -8,7 +8,7 @@
 		        	<h3 class ="text-center" ><%= link_to genre.genre_name, events_path(id: genre.id) %></h3>
 		        </div>
 		        <div class="panel-body text-center ">
-	            	<%= attachment_image_tag(genre, :genre_image, :fill, 300, 200, fallback: "no_image.jpg") %>
+	            	<%= attachment_image_tag genre, :genre_image, :fill, 300, 200, fallback: "no_image.jpg", :class => "resize" %>
 	            </div>
 			</div>
 		<% end %>

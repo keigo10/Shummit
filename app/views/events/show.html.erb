@@ -126,7 +126,7 @@ function initMap() {
   });
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjWm0YH2y4fr0bMTXrlbbpiMP40H9ymVs&callback=initMap" asynx defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>=initMap" asynx defer></script>
 <% if @event.join_events.where(user_id: current_user.id).exists? %>
   <table class="table table-bordered ">
       <thead>
