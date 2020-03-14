@@ -14,6 +14,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require bootstrap-sprockets
+//= require toastr
 //= require_tree .
 
 window.onload = function () {
@@ -21,13 +22,3 @@ window.onload = function () {
         getTheScrollPosition( this );
     };
 }
-
-$(function() {
-
-  $('.menu-trigger').on('click', function() {
-    $(this).toggleClass('active');
-    $('#sp-menu').fadeToggle();
-    return false;
-  });
-
- });

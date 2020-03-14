@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def index
     @user = User.all
@@ -13,12 +15,12 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(current_user.id)
-     user.update(user_params)
-     redirect_to user_path(current_user)
+    user.update(user_params)
+    redirect_to user_path(current_user)
   end
 
-  def withdraw
-  end
+  def withdraw; end
+
   def destory
     @user = current_user
     @user.destroy
@@ -36,7 +38,8 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
-    params.require(:user).permit(:first_name, :family_name, :first_name_kana, :family_name_kana, :email, :tel , :profile_image)
+    params.require(:user).permit(:first_name, :family_name, :first_name_kana, :family_name_kana, :email, :tel, :profile_image)
   end
 end

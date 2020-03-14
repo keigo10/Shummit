@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Userモデルのテスト', type: :model do
@@ -14,7 +16,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       let(:test_user) { user }
       it '空欄でないこと' do
         test_user.family_name = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
     end
 
@@ -22,7 +24,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       let(:test_user) { user }
       it '空欄でないこと' do
         test_user.first_name = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
     end
 
@@ -30,14 +32,12 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       let(:test_user) { user }
       it '空欄でないこと' do
         test_user.family_name_kana = ''
-        is_expected.to eq false;
+        is_expected.to eq false
       end
     end
   end
 
-
   describe 'アソシエーションのテスト' do
-
     context 'Eventモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:events).macro).to eq :has_many
@@ -49,7 +49,5 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         expect(User.reflect_on_association(:join_events).macro).to eq :has_many
       end
     end
-
   end
-
 end

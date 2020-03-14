@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
-    family_name { Faker::Lorem.characters(number:4) }
-    first_name { Faker::Lorem.characters(number:4) }
+    family_name { Faker::Lorem.characters(number: 4) }
+    first_name { Faker::Lorem.characters(number: 4) }
     family_name_kana { 'タロウ' }
     first_name_kana { 'ヨシダ' }
     email { Faker::Internet.email }

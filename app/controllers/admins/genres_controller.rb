@@ -1,21 +1,24 @@
+# frozen_string_literal: true
+
 class Admins::GenresController < ApplicationController
-  before_action :set_genre, only: [:show, :edit, :update, :destroy]
+  before_action :set_genre, only: %i[show edit update destroy]
 
   # GET /genres
   # GET /genres.json
   def index
-   @genre=Genre.new
-   @genres=Genre.where(is_valid: true )
+    @genre = Genre.new
+    @genres = Genre.where(is_valid: true)
   end
+
   # GET /genres/new
   def new
     @genre = Genre.new
-    @genres=Genre.where(is_valid: true )
+    @genres = Genre.where(is_valid: true)
   end
 
   # GET /genres/1/edit
   def edit
-    @genre=Genre.find(params[:id])
+    @genre = Genre.find(params[:id])
   end
 
   # POST /genres
@@ -59,13 +62,14 @@ class Admins::GenresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_genre
-      @genre = Genre.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def genre_params
-      params.require(:genre).permit(:genre_name, :is_valid, :genre_image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_genre
+    @genre = Genre.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def genre_params
+    params.require(:genre).permit(:genre_name, :is_valid, :genre_image)
+  end
 end
