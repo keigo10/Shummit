@@ -3,15 +3,15 @@
 class Admins::UsersController < ApplicationController
   def index
     # with_deleted 退会済み会員関係なくデータ取得
-    @users = User.page(params[:page])
+    @users = User.with_deleted.page(params[:page])
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.with_deleted.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.with_deleted.find(params[:id])
     # pp @user  メンターさんが入れて便利な機能と思われる
   end
 
@@ -22,7 +22,7 @@ class Admins::UsersController < ApplicationController
     if params[:user][:deleted_at] == 'true'
       user.update(user_params)
       user.restore
-      redirect_to admin_user_path(user.id)
+      redirect_to admins_user_path(user.id)
     else
       user.update(user_params)
       user.destroy
