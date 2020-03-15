@@ -20,8 +20,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :is_valid %>
-    <%= form.check_box :is_valid %>
+    <%= form.radio_button :is_valid ,true %>
+    <%= label_tag :is_valid, "有効" %>
+    <%= form.radio_button :is_valid ,false %>
+    <%= label_tag :is_vaild,"無効" %>
   </div>
 
   <div class="actions">

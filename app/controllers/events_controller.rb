@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def genre
-    @genres = Genre.all
+    @genres = Genre.where(is_valid: true )
   end
 
   def main

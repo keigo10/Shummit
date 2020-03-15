@@ -7,7 +7,7 @@ class Admins::GenresController < ApplicationController
   # GET /genres.json
   def index
     @genre = Genre.new
-    @genres = Genre.where(is_valid: true)
+    @genres = Genre.all
   end
 
   # GET /genres/new
@@ -40,15 +40,16 @@ class Admins::GenresController < ApplicationController
   # PATCH/PUT /genres/1
   # PATCH/PUT /genres/1.json
   def update
-    respond_to do |format|
-      if @genre.update(genre_params)
-        format.html { redirect_to admins_genres_path, notice: 'Genre was successfully updated.' }
-        format.json { render :show, status: :ok, location: @genre }
-      else
-        format.html { render :edit }
-        format.json { render json: @genre.errors, status: :unprocessable_entity }
-      end
-    end
+    genre=Genre.find(params[:id])
+    if params[:genre][:is_vaild] == true
+      genre.is_valid = true
+      genre.update(genre_params)
+      redirect_to admins_genres_path
+     else
+      genre.is_valid = false
+      genre.update(genre_params)
+      redirect_to admins_genres_path
+     end
   end
 
   # DELETE /genres/1
