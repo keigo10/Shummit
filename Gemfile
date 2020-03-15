@@ -64,6 +64,10 @@ group :test do
   gem 'faker'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
