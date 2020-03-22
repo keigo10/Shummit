@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-  <%= form.label :ジャンル %>
-  <%= form.collection_select(:genre_id, Genre.where(is_valid: true), :id, :genre_name) %>
+  <h2>＜イベント詳細＞</h2>
+
+  <div class="field ">
+    <%= form.label :ジャンル %>
+    <%= form.collection_select(:genre_id, Genre.where(is_valid: true), :id, :genre_name) %>
   </div>
 
   <div class="field">
@@ -31,23 +33,23 @@
     <%= form.text_field :entrance_fee,style: "border:double" %>
   </div>
 
-  <div class="field" style="margin-top: 10px;">
+  <div class="field field__margin">
     <h4>人数</h4>
     <%= form.number_field :persons,style: "border:double" %>
   </div>
 
-  <div class="field" style="margin-top: 10px;">
+  <div class="field field__margin">
     <h4>説明文</h4>
     <%= form.text_area :description, :size=>"60x5",style: "border:double" %>
   </div>
 
-  <div class="field" style="margin-top: 10px;">
+  <div class="field field__margin">
     <%= form.label :開催 %>
     <%= form.select :event_status,[["有効",true],["無効",false]] %>
   </div>
 
-  <h2>開催地</h2>
-  <p>郵便番号</p>
+  <h2>＜開催地＞</h2>
+  <h4>郵便番号</h4>
   <%= form.text_field :postcode,style: "border:double" %>
   <p>都道府県</p>
   <%= form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
@@ -59,7 +61,7 @@
   <%= form.text_field :address_building,style: "border:double" %>
 
 
-  <div class="actions">
-    <%= form.submit"更新する" ,class:"btn btn-primary" %>
+  <div class="actions container event-actions__new">
+    <%= form.submit"更新する" ,class:"btn btn-primary col-xs-10 col-xs-offset-1 sign_in" %>
   </div>
 <% end %>
