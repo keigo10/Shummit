@@ -13,11 +13,11 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <nav class="navbar navbar-fixed-top navbar-dark" role="navigation" style="background-color:#ffb000;">
+    <nav class="navbar navbar-fixed-top navbar-dark" role="navigation">
       <div class="container" >
         <div class="navbar-header">
           <a class="navbar-brand " href="/" ><%= image_tag 'rogo.jpg', size: '50x50' %></a>
-          <a class="navbar-brand " href="/" style="font-family: 'Ubuntu Mono', monospace;font-size: 400%;color:#fff;margin-top: 17px;">Shummit</a>
+          <a class="navbar-brand navbar-brand__font " href="/">Shummit</a>
           <% if admin_signed_in? || user_signed_in? %>
             <div class="pull-left" style="margin-top: 30px;">
               <%= search_form_for @search, url: "/events/search" do |f| %>
@@ -118,7 +118,7 @@
         </div>
       </div>
     </nav>
-    <div class="container container-app" style="padding-top: 80px;">
+    <div class="container container-app">
     <%= yield %>
     </div>
     <footer class="footer pull-left text-right">

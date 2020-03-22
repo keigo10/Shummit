@@ -1,12 +1,12 @@
 <div class="main-visual">
   <div class="main-visual-content">
-    <p class="main-visual-text" style="font-size: 800%;">
+    <p class="main-visual-text">
       shummit
     </p>
-    <p class="main-visual-name" style="font-size: 250%;margin-top:100px;margin-left:75px;text-align: left;">
+    <p class="main-visual-name main-visual-name__new">
       新しい趣味に
     </p>
-    <p class="main-visual-name" style="font-size: 250%;margin-top: 20px;margin-left:55px;">
+    <p class="main-visual-name main-visual-name__my">
       新しい自分を見つける
     </p>
   </div>
@@ -39,12 +39,12 @@
         </div>
 
         <div class="m-mainlist-item__link">
-          <p class="m-mainlist-item__map" style="font-size: 20px"><%= event.prefecture_code %>
+          <p class="m-mainlist-item__map m-mainlist-item__map__text"><%= event.prefecture_code %>
             <%= event.address_city %>
           </p>
-          <p class="m-mainlist-item__map" style="font-size: 20px"><%= event.address_street %></a>
-          <p class="m-mainlist-item__map" style="font-size: 20px">ジャンル：<%= event.genre.genre_name %></p>
-          <p class="m-mainlist-item__map" style="font-size: 20px"><%= event.description %></p>
+          <p class="m-mainlist-item__map m-mainlist-item__map__text"><%= event.address_street %></a>
+          <p class="m-mainlist-item__map m-mainlist-item__map__text">ジャンル：<%= event.genre.genre_name %></p>
+          <p class="m-mainlist-item__map m-mainlist-item__map__text"><%= event.description %></p>
         </div>
         <a class="m-mainlist-item__img">
           <span><%= attachment_image_tag(event.genre, :genre_image, :fill, 160, 160, fallback: "no_image.jpg") %></span>

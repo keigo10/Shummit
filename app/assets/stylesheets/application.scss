@@ -28,8 +28,58 @@
        url(font-path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
 }
 
-.resize {
-   
+.m-mainlist-item__map__text{
+  font-size: 20px;
+}
+
+.field__margin{
+  margin-top: 10px;
+}
+
+.event-actions__new{
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+.event-text__detail{
+  background: linear-gradient(-45deg, rgba(255, 118, 0, 0.4),rgba(250, 231, 0, 0.4));
+  border: double #9e894abf;
+  text-align:center;
+}
+
+.main-visual-name__new{
+  font-size: 250%;
+  margin-top:100px;
+  margin-left:75px;
+  text-align: left;
+}
+
+.comment-destroy{
+  text-align: right;
+}
+.main-visual-name__my{
+  font-size: 250%;
+  margin-top: 20px;
+  margin-left:55px;
+}
+
+.main-visual-text{
+  font-size: 800%;
+}
+
+.container-app{
+  padding-top: 80px;
+}
+
+.navbar-fixed-top{
+  background-color:#ffb000;
+}
+
+.navbar-brand__font{
+  font-family: 'Ubuntu Mono',
+  monospace;font-size: 400%;
+  color:#fff;
+  margin-top: 17px;
 }
 
 *, :after, :before {
@@ -125,25 +175,25 @@ select {
   background-color: #000;
   border-radius: 4px;
 }
- 
+
 .menu-trigger span:nth-of-type(1) {
   top: 0;
 }
- 
+
 .menu-trigger span:nth-of-type(2) {
   top: 20px;
 }
- 
+
 .menu-trigger span:nth-of-type(3) {
   bottom: 0;
 }
- 
+
 .menu-trigger.active span:nth-of-type(1) {
   -webkit-transform: translateY(20px) rotate(-45deg);
   transform: translateY(20px) rotate(-45deg);
   background-color: #fff;
 }
- 
+
 .menu-trigger.active span:nth-of-type(2) {
   opacity: 0;
 }
@@ -153,13 +203,11 @@ select {
   transform: translateY(-20px) rotate(45deg);
   background-color: #fff;
 }
- 
- 
+
 /* ------------------------ */
 /* ------ spメニュー ------ */
 /* ------------------------ */
- 
- 
+
 #sp-menu {
   position: fixed;
   top: 0;
