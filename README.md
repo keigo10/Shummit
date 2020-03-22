@@ -33,7 +33,7 @@ Userがイベントを立ち上げ、他のUserがそのイベントに参加す
 *gem "pry-byebug"（デバック）  
 *gem 'rails-i18n'（日本語化対応）  
 *gem 'ransack'（検索機能）  
-*gem 'rubocop', require: false  (コードの自動修正)
+*gem 'rubocop', require: false  (コードの自動修正)  
 *gem 'rubocop-rails'  （コードの自動修正）
 
 # Setup
