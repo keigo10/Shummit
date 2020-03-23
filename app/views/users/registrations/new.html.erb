@@ -1,8 +1,8 @@
-<h2>新規登録</h2>
+<h2 class="event-text__detail">新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-<table class="table">
+<table class="table login-field">
   <tr>
       <td><div class="field">
         <%= f.label :姓 %><br />
@@ -44,7 +44,7 @@
     </div></td>
   </tr>
 
-  <div class="field">
+  <div class="field login-field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -52,13 +52,13 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="field login-field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 </table>
   <div class="actions">
-    <%= f.submit "Sign up" , class: 'signup-btn'%>
+    <%= f.submit "新規登録する" , class: 'signup-btn btn-lg pull-left', :style=>"margin:40px;"%>
   </div>
 <% end %>
 
