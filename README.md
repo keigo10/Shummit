@@ -9,8 +9,10 @@
 趣味で繋がるSNSサイト。  
 Userがイベントを立ち上げ、他のUserがそのイベントに参加することができます。      
 開催場所をgoogleAPIを使いMap表示させたり、イベントに参加しているグループメンバー間でやりとりできます。  
+また、Userの退会処理に論理消去を用いており、ユーザーの管理がしやすくなっています。
 
-# VPC
+# VPC  
+デプロイ環境を自分で構築しました。  
 <img width="1286" alt="スクリーンショット 2020-03-10 15 10 31" src="https://user-images.githubusercontent.com/57954776/76287854-caa58000-62e8-11ea-863c-6497d5fe2fb6.png">
 <img width="410" alt="スクリーンショット 2020-03-10 16 13 57" src="https://user-images.githubusercontent.com/57954776/76288538-48b65680-62ea-11ea-9b7c-8f1e84fcf8e8.png">  
 
