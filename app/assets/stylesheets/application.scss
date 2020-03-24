@@ -285,7 +285,7 @@ select {
 }
 
 nav>.container {
-  width: 90%;
+  width: 95%;
 }
 .new_event {
   padding: 6px;
@@ -407,4 +407,46 @@ nav>.container {
 
 .m-mainlist__item {
     border-top: 1px solid #ddd;
+}
+
+.col-responsive{
+  width: 33.3333333333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media screen and (max-width:1024px) {
+  .col-responsive {
+    width: 50%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+}
+
+@media screen and (max-width:768px) {
+  .col-responsive {
+    width: 50%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+}
+
+@media screen and (max-width:600px) {
+  .col-responsive {
+    width: 100%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    }
 }
