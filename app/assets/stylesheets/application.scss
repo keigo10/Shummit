@@ -317,6 +317,29 @@ nav>.container {
     padding-right: 0px;
 }
 
+.event-join__link{
+  width: 50%;
+  height: 500px;
+}
+
+.event-join__jpeg{
+  width: 100%;
+  background: image-url('bbq.jpg');
+  background-position: bottom;
+  height: 400px;
+}
+
+.event-up__link{
+  width: 50%;
+  height: 500px;
+}
+
+.event-up__jpeg{
+  width: 100%;
+  background: image-url('fukusu.jpg');
+  height: 400px;
+}
+
 .m-mainlist-item {
     padding: 0 20px 10px;
     margin: 15px 0 0;

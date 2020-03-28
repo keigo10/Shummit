@@ -26,5 +26,27 @@
 		</div>
 	</div>
 </div>
-<h3 class = "" style="padding-top:60px;">参加中イベント　　<%= link_to '一覧を見る', users_joining_events_path , class:"btn btn-primary" %></h3>
-<h3 class = "h3_space" style="padding-top:60px;">立ち上げたイベント　　<%= link_to '一覧を見る', users_my_events_path , class:"btn btn-primary" %></h3>
+
+<div class = "pull-left event-join__link">
+	<div class ="panel panel-warning ">
+        <div class="panel-heading panel-warning">
+            <h3 class ="text-center" >参加中イベント</h3>
+        </div>
+        <%= link_to(users_joining_events_path) do %>
+        <div class="panel-body text-center event-join__jpeg">
+        </div>
+        <% end %>
+    </div>
+</div>
+<div class = "pull-left event-up__link">
+	<div class ="panel panel-warning ">
+        <div class="panel-heading panel-warning">
+            <h3 class ="text-center" >立ち上げたイベント</h3>
+        </div>
+        <%= link_to(users_joining_events_path) do %>
+        <div class="panel-body text-center event-up__jpeg">
+        </div>
+        <% end %>
+    </div>
+	<h3 class = "" style="padding-top:60px;">
+</div>
