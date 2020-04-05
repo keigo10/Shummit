@@ -93,7 +93,34 @@
       </tbody>
 </table>
 
-<div id="map" style="width: 600px; height: 500px;"></div>
+<div class="event__map" id="map"></div>
+<div class="t-event__map">
+  <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <h3 class="text-center" >イベント開催地マップ</h3>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="my_text">
+            <th class="text-center success">
+             <h3>開催地</h3>
+            </th>
+            <th class="text-center my_text">
+              <h3 id="map-address"><%= @event.prefecture_code %><%= @event.address_city %><%= @event.address_street %></h3>
+            </th>
+        </tr>
+        <tr class="my_text">
+            <th class="text-center success">
+             <h3>施設名</h3>
+            </th>
+            <th class="text-center">
+              <h3 id="map-address"><%= @event.address_building %></h3>
+            </th>
+        </tr>
+    </tbody>
+  </table>
+</div>
 <script>
 function initMap() {
 
